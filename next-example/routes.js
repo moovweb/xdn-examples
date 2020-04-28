@@ -16,7 +16,7 @@ const router = new Router()
     })
     return serveStatic('.next/static/service-worker.js')
   })
-  .match('/_next/data/*build/p/:id.json', ({ cache }) => {
+  .match('/_next/data/:build/p/:id.json', ({ cache }) => {
     cache({
       edge: {
         maxAgeSeconds: 60 * 60 * 24,
