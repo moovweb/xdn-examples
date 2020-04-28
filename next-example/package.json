@@ -1,0 +1,26 @@
+{
+  "name": "@xdn/next-example",
+  "version": "1.15.2",
+  "private": true,
+  "scripts": {
+    "build": "xdn build",
+    "start": "xdn run",
+    "deploy": "xdn deploy platform",
+    "prod": "xdn run --production",
+    "next:prod": "next build && next start"
+  },
+  "dependencies": {
+    "@xdn/cli": "^1.15.2",
+    "@xdn/core": "^1.15.2",
+    "@xdn/next": "^1.15.2",
+    "@xdn/prefetch": "^1.15.2",
+    "@xdn/react": "^1.15.2",
+    "next": "9.3.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "next-offline": "^5.0.0",
+    "workbox-build": "^5.1.2"
+  }
+}

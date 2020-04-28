@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "workbox-prefetch": {
+      "signature": "d53dedaf1bae4f3f240727153f9102f3",
+      "file": true
+    }
+  }
+}

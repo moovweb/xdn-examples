@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "@xdn/router": {
+      "signature": "0d16184020712138e039bc1a7825e3e9",
+      "file": true
+    }
+  }
+}
