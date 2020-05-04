@@ -5,4 +5,16 @@ const { Router } = require('@xdn/core/router')
 const { createNuxtPlugin } = require('@xdn/nuxt')
 const { nuxtMiddleware } = createNuxtPlugin()
 
-module.exports = new Router().use(nuxtMiddleware)
+module.exports = new Router()
+  .match('/sw.js', ({ cache, serveStatic }) => {
+    cache({
+      edge: {
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+      },
+      browser: {
+        maxAgeSeconds: 0,
+      },
+    })
+    return serveStatic('.nuxt/dist/client/service-worker.js')
+  })
+  .use(nuxtMiddleware)

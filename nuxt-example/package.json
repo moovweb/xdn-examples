@@ -1,25 +1,29 @@
 {
   "name": "@xdn/nuxt-example",
   "version": "1.15.2",
-  "description": "My stellar Nuxt.js project",
   "private": true,
   "scripts": {
     "build": "xdn build",
     "start": "xdn run",
     "deploy": "xdn deploy platform",
-    "prod": "xdn run --production"
+    "prod": "xdn run --production",
+    "xdn:update": "npm i --save @xdn/core@latest @xdn/next@latest @xdn/prefetch@latest @xdn/react@latest @xdn/cli@latest"
   },
   "dependencies": {
     "nuxt-start": "^2.12.2"
   },
   "devDependencies": {
-    "@xdn/cli": "^1.15.2",
-    "@xdn/core": "^1.15.2",
-    "@xdn/nuxt": "^1.15.2",
+    "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@xdn/cli": "^1.17.0",
+    "@xdn/core": "^1.17.0",
+    "@xdn/nuxt": "^1.17.0",
+    "@xdn/prefetch": "^1.17.0",
+    "@xdn/vue": "^1.17.0",
     "dotenv": "^8.2.0",
     "nuxt": "^2.0.0",
     "serverless": "^1.64.0",
     "serverless-dotenv-plugin": "^2.3.2",
-    "serverless-offline": "^5.12.1"
+    "serverless-offline": "^5.12.1",
+    "workbox-webpack-plugin": "^5.1.2"
   }
 }
