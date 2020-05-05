@@ -7,7 +7,6 @@
     "start": "xdn run",
     "deploy": "xdn deploy",
     "prod": "xdn run --production",
-    "build:server": "webpack --config webpack.server.config.js",
     "next:prod": "next build && next start",
     "xdn:update": "npm i --save @xdn/core@latest @xdn/next@latest @xdn/prefetch@latest @xdn/react@latest @xdn/cli@latest"
   },
@@ -23,8 +22,6 @@
     "@xdn/react": "^1.16.0-alpha.0",
     "@xdn/prefetch": "^1.16.0-alpha.0",
     "next-offline": "^5.0.0",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
     "workbox-build": "^5.1.2"
   }
 }
