@@ -1,3 +1,8 @@
-// This file was automatically added by xdn deploy.
-// You should commit this file to source control.
-module.exports = {}
+const { join } = require('path');
+
+module.exports = {
+  server: {
+    path: join(__dirname, 'dist', 'server.js')
+  },
+  includeNodeModules: true
+}

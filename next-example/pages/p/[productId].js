@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Prefetch } from '@xdn/react'
 import Link from 'next/link'
 

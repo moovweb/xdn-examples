@@ -4,6 +4,21 @@
     "workbox-prefetch": {
       "signature": "d53dedaf1bae4f3f240727153f9102f3",
       "file": true
+    },
+    "@xdn/cli": {
+      "signature": "06fdc55ecc23ce50373a95c0b9f58d02",
+      "file": true,
+      "replaced": "^1.16.0-alpha.0"
+    },
+    "@xdn/next": {
+      "signature": "e691e942680bcd0ac0175902e35c1150",
+      "file": true,
+      "replaced": "^1.16.0-alpha.0"
+    },
+    "@xdn/core": {
+      "signature": "0d4fc0900053685a214ee12280ebad81",
+      "file": true,
+      "replaced": "^1.16.0-alpha.0"
     }
   }
 }
