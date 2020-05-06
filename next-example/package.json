@@ -5,22 +5,22 @@
   "scripts": {
     "build": "xdn build",
     "start": "xdn run",
-    "deploy": "xdn deploy platform",
+    "deploy": "xdn deploy",
     "prod": "xdn run --production",
     "next:prod": "next build && next start",
     "xdn:update": "npm i --save @xdn/core@latest @xdn/next@latest @xdn/prefetch@latest @xdn/react@latest @xdn/cli@latest"
   },
   "dependencies": {
-    "@xdn/cli": "^1.16.0-alpha.0",
-    "@xdn/core": "^1.16.0-alpha.0",
-    "@xdn/next": "^1.16.0-alpha.0",
-    "@xdn/prefetch": "^1.16.0-alpha.0",
-    "@xdn/react": "^1.16.0-alpha.0",
     "next": "9.3.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
   "devDependencies": {
+    "@xdn/cli": "file:.yalc/@xdn/cli",
+    "@xdn/core": "file:.yalc/@xdn/core",
+    "@xdn/next": "file:.yalc/@xdn/next",
+    "@xdn/react": "^1.16.0-alpha.0",
+    "@xdn/prefetch": "^1.16.0-alpha.0",
     "next-offline": "^5.0.0",
     "workbox-build": "^5.1.2"
   }

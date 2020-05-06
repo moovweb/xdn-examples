@@ -1,3 +1,5 @@
 const { withServiceWorker } = require('@xdn/next/sw')
 
-module.exports = withServiceWorker()
+module.exports = withServiceWorker({
+  target: 'server'
+})
