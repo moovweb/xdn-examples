@@ -2,6 +2,64 @@ import 'zone.js/dist/zone-node';
 
 import * as express from 'express';
 import { join } from 'path';
+import * as http from 'http'
+import * as https from 'https'
+
+import { createNamespace } from 'cls-hooked'
+const requestsNamespace = createNamespace('requests')
+
+const patchHttpModule = (module) => {
+  const originalGetFn = module.get
+  module.get = function(...args) {
+    const requestsSet = requestsNamespace.active && requestsNamespace.get('requests')
+
+    if (requestsSet) {
+      let path
+      const options = args[0]
+      if (typeof options === 'string') {
+        path = options
+      } else {
+        path = `${options.protocol}://${options.host || options.hostname}${options.path || '/'}`
+      }
+
+      console.log(path)
+      requestsSet.add(path)
+    }
+
+    return originalGetFn(...args)
+  }
+
+  const originalRequestFn = module.request
+  module.request = function(...args) {
+    const request = originalRequestFn(...args)
+    const originalEndFn = request.end.bind(request)
+    request.end = (function(...args) {
+      console.log('requestsNamespace.active', requestsNamespace.active)
+      const requestsSet = requestsNamespace.active && requestsNamespace.get('requests')
+      if (requestsSet) {
+        let path
+        const options = args[0]
+        if (typeof options === 'string') {
+          path = options
+        } else {
+          path = `${options.protocol}://${options.host || options.hostname}${options.path || '/'}`
+        }
+
+        console.log(path)
+        requestsSet.add(path)
+      }
+      return originalEndFn(...args)
+    }).bind(request)
+    return request
+  }
+}
+
+const patchHttp = () => {
+  patchHttpModule(http)
+  patchHttpModule(https)
+}
+
+patchHttp()
 
 // Express server
 const app = express();
@@ -37,7 +95,21 @@ app.get(
 
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
-  res.render('index', { req });
+  requestsNamespace.run(function() {
+    const requests = new Set()
+    requestsNamespace.set('requests', requests)
+
+    requestsNamespace.bindEmitter(req)
+    requestsNamespace.bindEmitter(res)
+
+    const originalEndFn = res.end.bind(res)
+    res.end = function(...args) {
+      console.log('req.end', requests)
+      return originalEndFn(...args)
+    }
+  
+    res.render('index', { req });
+  })
 });
 
 export default app
