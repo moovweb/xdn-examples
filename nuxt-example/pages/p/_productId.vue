@@ -7,7 +7,7 @@
     </div>
     <ul v-if="products">
       <li v-for="(p, idx) in products">
-        <Prefetch v-bind:url="`/p/${idx}.json`">
+        <Prefetch v-bind:url="`/api/p/${idx}.json`">
           <nuxt-link v-bind:to="`/p/${idx}`">{{ p.name }}</nuxt-link>
         </Prefetch>
       </li>
