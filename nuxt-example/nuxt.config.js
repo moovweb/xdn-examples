@@ -1,5 +1,7 @@
 // This file was automatically added by xdn deploy.
 // You should commit this file to source control.
+const InjectManifestPlugin = require('@xdn/nuxt/sw/InjectManifestPlugin')
+
 module.exports = {
   mode: 'universal',
   /*
@@ -37,11 +39,17 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ['@nuxtjs/pwa'],
+  pwa: {
+    workbox: {
+      cachingExtensions: 'sw/service-worker.js',
+    },
+  },
   /*
    ** Build configuration
    */
   build: {
+    plugins: [InjectManifestPlugin],
     /*
      ** You can extend webpack config here
      */
