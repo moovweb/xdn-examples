@@ -1,0 +1,30 @@
+service:
+  name: myApp
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+custom:
+  dotenv:
+    path: '../../.env'
+
+functions:
+  all:
+    handler: handler.handler
+    environment:
+      XDN_DEPLOYMENT_TYPE: AWS
+      XDN_CONFIG: '{ "backends": { "__static__": { "domainOrIp": "127.0.0.1:3002" } } }'
+    # The `events` block defines how to trigger the handler
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true

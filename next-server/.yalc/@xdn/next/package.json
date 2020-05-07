@@ -1,0 +1,79 @@
+{
+  "name": "@xdn/next",
+  "version": "1.19.0-0f4d5ab3",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "content-type": "^1.0.4",
+    "fs-extra": "^8.1.0",
+    "lodash": "^4.17.15",
+    "next-offline": "^5.0.1",
+    "pino": "^5.17.0",
+    "qs": "^6.9.1",
+    "yargs": "^15.1.0"
+  },
+  "peerDependencies": {
+    "dotenv": "^8.2.0",
+    "serverless": "^1.64.0",
+    "serverless-dotenv-plugin": "^2.3.2",
+    "serverless-offline": "^5.12.1"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist; mkdir ./dist; cp -r package.json README.md default-app ./dist; babel src -d dist",
+    "watch": "npm-watch",
+    "push-build": "npm run build && cd dist && yalc push && cd ..",
+    "link": "npm run build; cd dist; npm unlink; npm link",
+    "release": "cd ./dist; npm publish --access public",
+    "release:next": "npm run release -- --tag next",
+    "test": "jest",
+    "precommit": "lint-staged"
+  },
+  "watch": {
+    "push-build": {
+      "patterns": [
+        "src",
+        "package.json",
+        "default-app"
+      ],
+      "extensions": "*",
+      "quiet": false
+    }
+  },
+  "jest": {
+    "clearMocks": true,
+    "collectCoverage": true,
+    "transform": {
+      "^.+\\.(js)?$": "babel-jest",
+      "^.+\\.ts$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "collectCoverageFrom": [
+      "./src/**/*.{js,jsx}",
+      "./lambda/**/*.{js,jsx}",
+      "!**/mocks/**",
+      "!./src/default-app/**",
+      "!**/bin/**/*",
+      "!**/index.js"
+    ],
+    "moduleNameMapper": {
+      "^@xdn/core(.*)$": "<rootDir>/../core/src/$1",
+      "^@xdn/next(.*)$": "<rootDir>/../next/src/$1"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write src/**/*.js",
+      "git add"
+    ]
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}

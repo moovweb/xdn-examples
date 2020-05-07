@@ -1,0 +1,67 @@
+{
+  "name": "@xdn/react",
+  "version": "1.19.0-25cf7b1c",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "react-merge-refs": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist; mkdir ./dist; cp -r package.json README.md ./dist; babel src -d dist",
+    "watch": "npm-watch",
+    "push-build": "npm run build && cd dist && yalc push && cd ..",
+    "release": "cd ./dist; npm publish --access public",
+    "release:next": "npm run release -- --tag next",
+    "test": "jest",
+    "precommit": "lint-staged"
+  },
+  "watch": {
+    "push-build": {
+      "patterns": [
+        "src",
+        "package.json"
+      ],
+      "extensions": "*",
+      "quiet": false
+    }
+  },
+  "jest": {
+    "clearMocks": true,
+    "collectCoverage": true,
+    "transform": {
+      "^.+\\.(js)?$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "collectCoverageFrom": [
+      "./src/**/*.{js,jsx}",
+      "!**/mocks/**",
+      "!**/index.js"
+    ],
+    "moduleNameMapper": {
+      "^@xdn/core(.*)$": "<rootDir>/../core/src/$1",
+      "^@xdn/next(.*)$": "<rootDir>/../next/src/$1",
+      "^@xdn/react(.*)$": "<rootDir>/../react/src/$1"
+    },
+    "setupFiles": [
+      "./test/config/setup.js"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write src/**/*.js",
+      "git add"
+    ]
+  },
+  "publishConfig": {
+    "directory": "dist"
+  }
+}
