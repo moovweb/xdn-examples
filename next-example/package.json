@@ -5,18 +5,20 @@
   "scripts": {
     "build": "xdn build",
     "start": "xdn run",
-    "deploy": "xdn deploy platform",
+    "deploy": "xdn deploy",
     "prod": "xdn run --production",
     "next:prod": "next build && next start",
     "xdn:update": "npm i --save @xdn/core@latest @xdn/next@latest @xdn/prefetch@latest @xdn/react@latest @xdn/cli@latest"
   },
   "dependencies": {
-    "@xdn/cli": "^1.16.0-alpha.0",
-    "@xdn/core": "^1.16.0-alpha.0",
-    "@xdn/next": "^1.16.0-alpha.0",
-    "@xdn/prefetch": "^1.16.0-alpha.0",
-    "@xdn/react": "^1.16.0-alpha.0",
+    "@xdn/cli": "^1.18.0",
+    "@xdn/core": "^1.18.0",
+    "@xdn/next": "^1.18.0",
+    "@xdn/prefetch": "^1.18.0",
+    "@xdn/react": "^1.18.0",
+    "express": "^4.17.1",
     "next": "9.3.1",
+    "next-i18next": "^4.4.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
