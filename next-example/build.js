@@ -9,21 +9,18 @@ const appDir = process.cwd();
 const builder = new DeploymentBuilder(appDir);
 
 // Copy over static dir to lambda
-builder.addJSAsset(join(appDir, 'public', 'static'));
-/*
+builder.addJSAsset(join(appDir, 'public', 'static'), join('public', 'static'));
+
 // Create package for external libs
 writeFileSync(
   '.xdn/lambda/package.json',
   JSON.stringify({
     dependencies: {
-      'next-i18next': 'beta',
-      // 'i18next-express-middleware': '^1.9.1',
-      // 'i18next-node-fs-backend': '^2.1.3',
-      // 'jaeger-client': '^3.17.2',
+      'i18next-fs-backend': '^1.0.2',
+      'i18next-http-middleware': '^1.0.4',
     },
   })
 );
 exec('npm install --production', {
   cwd: '.xdn/lambda',
 });
-*/

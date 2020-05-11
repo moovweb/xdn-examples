@@ -4,6 +4,11 @@
     "workbox-prefetch": {
       "signature": "d53dedaf1bae4f3f240727153f9102f3",
       "file": true
+    },
+    "@xdn/next": {
+      "signature": "fa9f4fccee9c0194e909158f87c9d223",
+      "file": true,
+      "replaced": "^1.18.0"
     }
   }
 }

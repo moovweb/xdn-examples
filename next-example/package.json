@@ -9,13 +9,12 @@
     "prod": "xdn run --production",
     "next": "next",
     "next:prod": "next build && next start",
-    "xdn:update": "npm i --save @xdn/core@latest @xdn/next@latest @xdn/prefetch@latest @xdn/react@latest @xdn/cli@latest",
-    "build:server": "webpack --config webpack.server.config.js"
+    "xdn:update": "npm i --save @xdn/core@latest @xdn/next@latest @xdn/prefetch@latest @xdn/react@latest @xdn/cli@latest"
   },
   "dependencies": {
     "@xdn/cli": "^1.18.0",
-    "@xdn/core": "^1.18.0",
-    "@xdn/next": "^1.18.0",
+    "@xdn/core": "^1.20.2",
+    "@xdn/next": "file:.yalc/@xdn/next",
     "@xdn/prefetch": "^1.18.0",
     "@xdn/react": "^1.18.0",
     "express": "^4.17.1",
