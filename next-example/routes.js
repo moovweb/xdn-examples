@@ -1,8 +1,9 @@
 // This file was automatically added by xdn deploy.
 // You should commit this file to source control.
-const { Router } = require('@xdn/core/router')
-const { createNextPlugin } = require('@xdn/next')
-const { nextMiddleware } = createNextPlugin()
+const { Router } = require('@xdn/core/router');
+const { createNextPlugin } = require('@xdn/next');
+const { BACKENDS } = require('@xdn/core/constants');
+const { nextMiddleware } = createNextPlugin();
 
 const router = new Router()
   .match('/service-worker.js', ({ cache, serveStatic }) => {
@@ -13,8 +14,8 @@ const router = new Router()
       browser: {
         maxAgeSeconds: 0,
       },
-    })
-    return serveStatic('.next/static/service-worker.js')
+    });
+    return serveStatic('.next/static/service-worker.js');
   })
   .match('/_next/data/:build/p/:id.json', ({ cache }) => {
     cache({
@@ -24,8 +25,11 @@ const router = new Router()
       browser: {
         serviceWorkerSeconds: 60 * 60,
       },
-    })
+    });
   })
   .use(nextMiddleware)
+  .fallback(({ proxy }) => {
+    return proxy(BACKENDS.js);
+  });
 
-module.exports = router
+module.exports = router;

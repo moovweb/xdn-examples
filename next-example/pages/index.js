@@ -1,30 +1,21 @@
 import Head from 'next/head';
-import { withTranslation, i18n } from '../i18n';
+import { useTranslation } from '../i18n';
 
-const Home = ({ t, lang, name }) => {
-  function Lang(props) {
-    if (lang === props.lang) {
-      return (
-        <span
-          style={{
-            fontWeight: 'bold',
-          }}
-        >
-          {props.lang}
-        </span>
-      );
-    }
-    return (
-      <a
-        onClick={() => i18n.changeLanguage(props.lang)}
-        style={{
-          textDecoration: 'none',
-        }}
-      >
-        {props.lang}
-      </a>
-    );
-  }
+const langs = ['en', 'hu'];
+
+function LanguageSwitcher() {
+  const { i18n } = useTranslation();
+  const current = i18n.language;
+  const other = langs[langs.indexOf(current) ^ 1];
+  return (
+    <button onClick={() => i18n.changeLanguage(other)}>
+      Switch from <b>{current}</b> to <b>{other}</b>
+    </button>
+  );
+}
+
+const Home = ({ name }) => {
+  const { t } = useTranslation();
   return (
     <div className="container">
       <Head>
@@ -34,7 +25,7 @@ const Home = ({ t, lang, name }) => {
         <h1 className="title">{t('title')}</h1>
         <p className="description">{t('welcome', { name })}</p>
         <code>
-          <Lang lang="en" />|<Lang lang="hu" />
+          <LanguageSwitcher />
         </code>
       </main>
       <style jsx>{`
@@ -91,12 +82,12 @@ const Home = ({ t, lang, name }) => {
   );
 };
 
-Home.getInitialProps = async ({ req }) => {
-  const lang = req ? req.language : i18n.language;
+Home.getInitialProps = async ({ query }) => {
+  const { name = 'anonymous' } = query;
   return {
-    lang,
-    name: (req && req.query.name) || 'anonymous',
+    name,
+    namespacesRequired: ['common'],
   };
 };
 
-export default withTranslation('common')(Home);
+export default Home;
