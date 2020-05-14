@@ -4,6 +4,11 @@
     "@xdn/router": {
       "signature": "0d16184020712138e039bc1a7825e3e9",
       "file": true
+    },
+    "@xdn/core": {
+      "signature": "2cc4a607ecc893eca66d8c80de29707c",
+      "file": true,
+      "replaced": "^1.15.2"
     }
   }
 }

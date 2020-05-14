@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./xdn/dev.js",
+    "start": "xdn run",
     "build": "webpack --config=webpack/prod.server.config.js --progress --colors && node ./xdn/build",
     "prod": "XDN_DEPLOYMENT_TYPE=AWS concurrently \"cd .xdn/lambda && sls offline\" \"port=3002 node ./node_modules/@xdn/core/bin/xdn-serve-assets.js\""
   },
@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@xdn/core": "^1.15.2"
+    "@xdn/core": "file:.yalc/@xdn/core"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
