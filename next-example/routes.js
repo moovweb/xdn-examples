@@ -1,8 +1,7 @@
 // This file was automatically added by xdn deploy.
 // You should commit this file to source control.
 const { Router } = require('@xdn/core/router')
-const { createNextPlugin } = require('@xdn/next')
-const { nextMiddleware } = createNextPlugin()
+const { nextRouter } = require('@xdn/next')
 
 const router = new Router()
   .match('/service-worker.js', ({ cache, serveStatic }) => {
@@ -26,6 +25,6 @@ const router = new Router()
       },
     })
   })
-  .use(nextMiddleware)
+  .use(nextRouter)
 
 module.exports = router
