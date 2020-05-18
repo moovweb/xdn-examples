@@ -1,5 +1,6 @@
 import { Router, CustomCacheKey } from '@xdn/core/router'
 import { CACHE_SERVICE_WORKER } from './cache'
+import JSONP_QUERY_PARAM_WHITELIST from './JSONP_QUERY_PARAM_WHITELIST'
 
 export default new Router()
   .match('/service-worker.js', ({ serveStatic, cache }) => {
@@ -27,14 +28,15 @@ export default new Router()
     },
     async ({ cache, send }) => {
       cache({
-        // @ts-ignore
         browser: {
           maxAgeSeconds: 0,
           serviceWorkerSeconds: 60 * 60,
         },
         edge: {
           maxAgeSeconds: 60 * 60,
-          key: new CustomCacheKey().excludeAllQueryParametersExcept('foo'),
+          key: new CustomCacheKey().excludeAllQueryParametersExcept(
+            ...Array.from(JSONP_QUERY_PARAM_WHITELIST)
+          ),
         },
       })
 

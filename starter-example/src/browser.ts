@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   $('#testJsonp').click(function () {
     $.ajax({
-      url: '/fetch-data',
+      url: '/fetch-data?q=1',
       dataType: 'jsonp',
     }).then((data) => {
       console.log('data', data)

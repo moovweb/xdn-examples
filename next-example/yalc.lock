@@ -16,9 +16,9 @@
       "replaced": "^1.20.0"
     },
     "@xdn/prefetch": {
-      "signature": "c0aa1dd20315ffed7fec5b030b45ea5f",
+      "signature": "cdd9ba579546b8fbc21358be9196e032",
       "file": true,
-      "replaced": "^1.20.0"
+      "replaced": "^1.16.0-alpha.0"
     },
     "@xdn/react": {
       "signature": "2746e49e66fc58458998c26423063237",
