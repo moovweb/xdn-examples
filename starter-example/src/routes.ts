@@ -22,7 +22,7 @@ export default new Router()
     {
       path: '/fetch-data',
       headers: {
-        'x-xdn-from-sw': /true/,
+        'x-xdn-from-sw': /1/,
       },
     },
     async ({ cache, send }) => {
