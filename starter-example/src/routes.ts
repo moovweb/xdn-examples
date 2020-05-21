@@ -5,7 +5,7 @@ import JSONP_QUERY_PARAM_WHITELIST from './JSONP_QUERY_PARAM_WHITELIST'
 export default new Router()
   .match('/service-worker.js', ({ serveStatic, cache }) => {
     cache(CACHE_SERVICE_WORKER)
-    return serveStatic('dist/service-worker.js')
+    serveStatic('dist/service-worker.js')
   })
   .match('/main.js', ({ serveStatic, cache }) => {
     cache({
@@ -16,7 +16,7 @@ export default new Router()
         maxAgeSeconds: 60 * 60 * 365,
       },
     })
-    return serveStatic('dist/browser.js')
+    serveStatic('dist/browser.js')
   })
   // jsonp from service worker
   .match(
@@ -26,7 +26,7 @@ export default new Router()
         'x-xdn-from-sw': /1/,
       },
     },
-    async ({ cache, send }) => {
+    async ({ cache, send, removeRequestHeader }) => {
       cache({
         browser: {
           maxAgeSeconds: 0,
@@ -40,16 +40,18 @@ export default new Router()
         },
       })
 
-      await send(`jQuery35106546810873918889_1589791355847(${JSON.stringify({ success: true })})`)
+      removeRequestHeader('x-xdn-from-sw')
+
+      send(`jQuery35106546810873918889_1589791355847(${JSON.stringify({ success: true })})`)
     }
   )
   // jsonp without service worker
   .match('/fetch-data', async ({ cache, send }) => {
-    await send(`jQuery35106546810873918889_1589791355847(${JSON.stringify({ success: true })})`)
+    send(`jQuery35106546810873918889_1589791355847(${JSON.stringify({ success: true })})`)
   })
   .match('/', ({ serveStatic }) => {
-    return serveStatic('public/index.html')
+    serveStatic('public/index.html')
   })
   .fallback(({ proxy }) => {
-    return proxy('origin')
+    proxy('origin')
   })

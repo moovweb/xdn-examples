@@ -8,14 +8,15 @@
     "deploy": "xdn deploy platform",
     "prod": "xdn run --production",
     "next:prod": "next build && next start",
-    "xdn:update": "npm i --save @xdn/core@latest @xdn/next@latest @xdn/prefetch@latest @xdn/react@latest @xdn/cli@latest"
+    "xdn:update": "npm i --save @xdn/core@latest @xdn/next@latest @xdn/prefetch@latest @xdn/react@latest @xdn/cli@latest",
+    "xdn:link": "yalc add @xdn/core @xdn/next @xdn/prefetch @xdn/react @xdn/cli"
   },
   "dependencies": {
-    "@xdn/cli": "^1.16.0-alpha.0",
-    "@xdn/core": "^1.16.0-alpha.0",
-    "@xdn/next": "^1.16.0-alpha.0",
-    "@xdn/prefetch": "file:.yalc/@xdn/prefetch",
-    "@xdn/react": "^1.16.0-alpha.0",
+    "@xdn/cli": "^1.27.2",
+    "@xdn/core": "^1.27.2",
+    "@xdn/next": "^1.27.2",
+    "@xdn/prefetch": "^1.27.2",
+    "@xdn/react": "^1.27.2",
     "next": "9.3.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
