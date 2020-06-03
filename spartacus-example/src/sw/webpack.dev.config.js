@@ -34,7 +34,7 @@ module.exports = {
       XDN_PREFETCH_QUERY_PARAM: '__prefetch__',
       XDN_PREFETCH_CACHE_NAME: 'prefetch',
       XDN_HEADER_PREFETCH_QUERY_PARAM: '__header-prefetch__',
-      PREFETCH_RESPONSE_HEADER_NAME: 'x-xdn-backend-requests',
+      BACKEND_REQUESTS_RESPONSE_HEADER_NAME: 'x-xdn-backend-requests',
       PREFETCH_HEADER_NAME: 'x-xdn-prefetch',
       XDN_PREFETCH_HEADER_VALUE: '1',
       NODE_ENV: 'production',
