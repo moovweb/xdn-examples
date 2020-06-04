@@ -17,7 +17,7 @@
     "build:pwa:web": "rimraf ./dist/xdn-spartacus/service-worker.js && webpack --config ./src/sw/webpack.prod.config.js --progress --colors && node ./src/sw/workbox-build-inject.js",
     "postbuild:ssr": "npm run build:pwa:web"
   },
-  "name": "xdn-spartacus-new",
+  "name": "xdn-spartacus",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
