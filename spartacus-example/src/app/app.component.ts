@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       if (this.isBrowser) {
-        install()
+        install({ includeCacheMisses: true })
       }
     })
   }

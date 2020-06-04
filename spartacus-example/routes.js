@@ -41,7 +41,6 @@ module.exports = app => {
         browser: {
           maxAgeSeconds: PAGE_TTL,
           serviceWorkerSeconds: PAGE_TTL,
-          spa: true,
         },
         edge: {
           maxAgeSeconds: PAGE_TTL,
@@ -54,7 +53,6 @@ module.exports = app => {
         browser: {
           maxAgeSeconds: PAGE_TTL,
           serviceWorkerSeconds: PAGE_TTL,
-          spa: true,
         },
         edge: {
           maxAgeSeconds: PAGE_TTL,

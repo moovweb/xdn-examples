@@ -6,28 +6,24 @@ const webBuildTargetFolder = path.join(__dirname, "..", "..", "dist", "xdn-spart
 const targetServiceWorkerFilename = "service-worker.js";
 
 module.exports = {
-  target: "node",
-  mode: "none",
-  // WARNING: commented out to disable source maps
-  //devtool: 'inline-source-map',
-  entry: {
-    index: path.join(__dirname, "service-worker.ts"),
-  },
-  resolve: { extensions: [".js", ".ts"] },
-  output: {
-    path: webBuildTargetFolder,
-    filename: targetServiceWorkerFilename,
-  },
   module: {
     rules: [
       {
-        test: /\.ts$/,
-        loader: "ts-loader",
-        options: {
-          onlyCompileBundledFiles: true,
-        },
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  entry: {
+    index: path.join(__dirname, "service-worker.ts"),
+  },
+  output: {
+    path: webBuildTargetFolder,
+    filename: targetServiceWorkerFilename,
   },
   plugins: [
     new webpack.EnvironmentPlugin({

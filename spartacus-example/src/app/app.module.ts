@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { translations, translationChunksConfig } from '@spartacus/assets';
 import { B2cStorefrontModule } from '@spartacus/storefront';
+import { environment } from './../environments/environment';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { B2cStorefrontModule } from '@spartacus/storefront';
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
-          baseUrl: 'https://tony-lepmets-xdn-spartacus-default.moovweb-edge.io',
+          baseUrl: environment.occBaseUrl,
           prefix: '/rest/v2/'
         }
       },
