@@ -1,0 +1,28 @@
+{
+  "name": "express-example",
+  "devDependencies": {
+    "@types/node": "^13.13.2",
+    "@xdn/cli": "file:.yalc/@xdn/cli",
+    "@xdn/core": "file:.yalc/@xdn/core",
+    "@xdn/prefetch": "file:.yalc/@xdn/prefetch",
+    "concurrently": "^5.2.0",
+    "prettier": "^2.0.5",
+    "serverless": "^1.64.0",
+    "serverless-dotenv-plugin": "^2.3.2",
+    "serverless-offline": "^5.12.1",
+    "ts-loader": "^7.0.1",
+    "ts-node": "^8.9.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "start": "xdn run",
+    "build": "xdn build",
+    "prod": "xdn run --production",
+    "deploy": "xdn deploy",
+    "xdn": "xdn",
+    "xdn:update": "npm i --save-dev @xdn/cli@latest @xdn/core@latest @xdn/prefetch@latest",
+    "xdn:link": "yalc add @xdn/core @xdn/prefetch @xdn/cli"
+  }
+}

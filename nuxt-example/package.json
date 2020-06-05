@@ -7,7 +7,9 @@
     "build": "xdn build",
     "start": "xdn run",
     "deploy": "xdn deploy platform",
-    "prod": "xdn run --production"
+    "prod": "xdn run --production",
+    "xdn:update": "npm i -D @xdn/core@latest @xdn/nuxt@latest @xdn/prefetch@latest @xdn/vue@latest @xdn/cli@latest",
+    "xdn:link": "yalc add @xdn/core @xdn/nuxt @xdn/prefetch @xdn/vue @xdn/cli"
   },
   "dependencies": {
     "nuxt-start": "^2.12.2"

@@ -4,6 +4,11 @@
 // You should commit this file to source control.
 
 module.exports = {
-  backends: {},
+  backends: {
+    origin: {
+      domainOrIp: 'moovdemo.myshopify.com',
+      hostHeader: 'moovdemo.myshopify.com',
+    },
+  },
   includeNodeModules: true,
 }
