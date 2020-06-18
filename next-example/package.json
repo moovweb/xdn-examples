@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "xdn build",
+    "next": "next",
     "start": "xdn run",
     "deploy": "xdn deploy platform",
     "prod": "xdn run --production",
