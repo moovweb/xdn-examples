@@ -17,7 +17,7 @@
   "devDependencies": {
     "@xdn/cli": "^1.36.0",
     "@xdn/core": "^1.36.0",
-    "@xdn/nuxt": "file:.yalc/@xdn/nuxt",
+    "@xdn/nuxt": "^1.36.0",
     "@xdn/prefetch": "^1.36.0",
     "@xdn/vue": "^1.36.0",
     "dotenv": "^8.2.0",
