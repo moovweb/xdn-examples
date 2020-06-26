@@ -2,16 +2,8 @@
 // You should commit this file to source control.
 
 const { Router } = require('@xdn/core/router')
-const { createNuxtPlugin } = require('@xdn/nuxt')
-const { nuxtMiddleware } = createNuxtPlugin()
+const { nuxtRoutes, renderNuxtPage } = require('@xdn/nuxt')
 
-const pwaRouter = new Router()
-.use(nuxtMiddleware)
+module.exports = new Router()
+  .use(nuxtRoutes)
   
-const legacyRouter = new Router()
-  .fallback(({ proxy }) => {
-    proxy('origin')
-  })
-
-module.exports = new Router().destination('pwa', pwaRouter).destination('legacy', legacyRouter)
-

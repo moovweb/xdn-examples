@@ -15,9 +15,11 @@
     "nuxt-start": "^2.12.2"
   },
   "devDependencies": {
-    "@xdn/cli": "^1.15.2",
-    "@xdn/core": "^1.15.2",
-    "@xdn/nuxt": "^1.15.2",
+    "@xdn/cli": "^1.36.0",
+    "@xdn/core": "^1.36.0",
+    "@xdn/nuxt": "file:.yalc/@xdn/nuxt",
+    "@xdn/prefetch": "^1.36.0",
+    "@xdn/vue": "^1.36.0",
     "dotenv": "^8.2.0",
     "nuxt": "^2.0.0",
     "serverless": "^1.64.0",
