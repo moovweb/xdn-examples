@@ -4,16 +4,8 @@ const { Router } = require('@xdn/core/router')
 const { nextRoutes, renderNextPage } = require('@xdn/next')
 
 const router = new Router()
-  .match('/service-worker.js', ({ cache, serveStatic }) => {
-    cache({
-      edge: {
-        maxAgeSeconds: 60 * 60 * 24 * 365,
-      },
-      browser: {
-        maxAgeSeconds: 0,
-      },
-    })
-    serveStatic('.next/static/service-worker.js')
+  .match('/service-worker.js', ({ serviceWorker }) => {
+    serviceWorker('.next/static/service-worker.js')
   })
   .match('/_next/data/:build/p/:id.json', ({ cache }) => {
     cache({

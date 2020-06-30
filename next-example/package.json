@@ -13,11 +13,11 @@
     "xdn:link": "yalc add @xdn/core @xdn/next @xdn/prefetch @xdn/react @xdn/cli"
   },
   "dependencies": {
-    "@xdn/cli": "^1.27.2",
-    "@xdn/core": "^1.27.2",
-    "@xdn/next": "^1.27.2",
-    "@xdn/prefetch": "^1.27.2",
-    "@xdn/react": "^1.27.2",
+    "@xdn/cli": "^1.37.0",
+    "@xdn/core": "^1.37.0",
+    "@xdn/next": "^1.37.0",
+    "@xdn/prefetch": "^1.37.0",
+    "@xdn/react": "^1.37.0",
     "next": "9.3.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"

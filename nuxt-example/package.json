@@ -4,6 +4,7 @@
   "description": "My stellar Nuxt.js project",
   "private": true,
   "scripts": {
+    "nuxt": "nuxt",
     "build": "xdn build",
     "start": "xdn run",
     "deploy": "xdn deploy platform",
@@ -12,18 +13,21 @@
     "xdn:link": "yalc add @xdn/core @xdn/nuxt @xdn/prefetch @xdn/vue @xdn/cli"
   },
   "dependencies": {
-    "nuxt-start": "^2.12.2"
+    "nuxt-start": "^2.13.1"
   },
   "devDependencies": {
+    "@nuxt/http": "^0.5.7",
     "@xdn/cli": "^1.36.0",
     "@xdn/core": "^1.36.0",
     "@xdn/nuxt": "^1.36.0",
     "@xdn/prefetch": "^1.36.0",
     "@xdn/vue": "^1.36.0",
     "dotenv": "^8.2.0",
-    "nuxt": "^2.0.0",
-    "serverless": "^1.64.0",
-    "serverless-dotenv-plugin": "^2.3.2",
-    "serverless-offline": "^5.12.1"
+    "nuxt": "^2.13.1",
+    "serverless": "^1.74.0",
+    "serverless-dotenv-plugin": "^2.4.2",
+    "serverless-offline": "^5.12.1",
+    "vue-content-placeholders": "^0.2.1",
+    "workbox-webpack-plugin": "^5.1.3"
   }
 }

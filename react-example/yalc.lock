@@ -6,7 +6,7 @@
       "file": true
     },
     "@xdn/core": {
-      "signature": "15cb23caaa9dca2fd6f25f0ec3b37c07",
+      "signature": "7b112068ed904ba305133f59726e2961",
       "file": true,
       "replaced": "^1.15.2"
     }

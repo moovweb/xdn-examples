@@ -5,9 +5,9 @@
 
 module.exports = {
   backends: {
-    origin: {
-      domainOrIp: 'moovdemo.myshopify.com',
-      hostHeader: 'moovdemo.myshopify.com',
+    api: {
+      domainOrIp: 'jsonplaceholder.typicode.com',
+      hostHeader: 'jsonplaceholder.typicode.com',
     },
   },
   includeNodeModules: true,

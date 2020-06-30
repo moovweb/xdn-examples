@@ -1,4 +1,5 @@
 // This file was automatically added by xdn deploy.
+const CreateServiceWorkerPlugin = require("@xdn/nuxt/sw/CreateServiceWorkerPlugin")
 // You should commit this file to source control.
 module.exports = {
   mode: 'universal',
@@ -29,15 +30,24 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '@/plugins/vue-placeholders.js',
+    { 
+      src: '@/node_modules/@xdn/nuxt/sw/InstallServiceWorkerPlugin.js', 
+      ssr: false 
+    }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [],
+  buildModules: [
+  ],
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    '@nuxt/http'
+  ],
   /*
    ** Build configuration
    */
@@ -45,7 +55,11 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}, // eslint-disable-line no-unused-vars
+    extend(config, ctx) {
+      if (ctx.isClient) {
+        config.plugins.push(new CreateServiceWorkerPlugin())
+      }
+    }, 
   },
   /*
    ** Render configuration
@@ -55,5 +69,13 @@ module.exports = {
      ** XDN already does compression:
      */
     compressor: false,
+  },
+  router: {
+    extendRoutes (routes, resolve) {
+      routes.push({
+        path: '/foo/:id?',
+        component: resolve(__dirname, 'pages/posts/_id.vue')
+      })
+    }
   },
 }
