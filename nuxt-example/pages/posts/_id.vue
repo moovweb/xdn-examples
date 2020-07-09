@@ -10,9 +10,7 @@
       </content-placeholders>
     </template>
     <template v-else-if="$fetchState.error">
-      <h1>
-        Post #{{ $route.params.id }} not found
-      </h1>
+      <h1>Post #{{ $route.params.id }} not found</h1>
     </template>
     <template v-else>
       <h1>{{ post.title }}</h1>
@@ -28,16 +26,18 @@
 
 <script>
 export default {
-  async fetch () {
-    this.post = await this.$http.$get(`/api/posts/${this.$route.params.id}`)
+  async fetch() {
+    this.post = await this.$http.$get(
+      `https://jsonplaceholder.typicode.com/posts/${this.$route.params.id}`
+    );
   },
-  data () {
+  data() {
     return {
       post: {}
-    }
+    };
   },
-  head () {
-    return { title: this.post.title }
+  head() {
+    return { title: this.post.title };
   }
-}
+};
 </script>

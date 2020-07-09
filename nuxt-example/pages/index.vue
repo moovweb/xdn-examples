@@ -18,11 +18,6 @@
             </n-link>
           </Prefetch>
         </li>
-        <li>
-          <n-link to="/posts/404">
-            404 post
-          </n-link>
-        </li>
       </ul>
     </template>
   </div>
@@ -37,7 +32,7 @@ export default {
   },
   async fetch() {
     this.posts = await this.$http
-      .$get("/api/posts")
+      .$get("https://jsonplaceholder.typicode.com/posts")
       .then(posts => posts.slice(0, 5));
   },
   data() {
