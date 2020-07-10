@@ -1,3 +1,22 @@
-const { withServiceWorker } = require('@xdn/next/sw')
+const { withServiceWorker } = require("@xdn/next/sw");
+const withXDN = require("@xdn/next/withXDN");
 
-module.exports = withServiceWorker()
+module.exports = withXDN(
+  withServiceWorker({
+    experimental: {
+      rewrites: () => [
+        {
+          source: "/products/:id",
+          destination: "/p/:id",
+        },
+      ],
+      redirects: () => [
+        {
+          source: "/sale/:id",
+          destination: "/p/:id",
+          permanent: false,
+        },
+      ],
+    },
+  })
+);

@@ -14,9 +14,9 @@
   },
   "dependencies": {
     "@nuxt/http": "^0.5.7",
+    "@xdn/vue": "file:.yalc/@xdn/vue",
     "nuxt-start": "^2.13.1",
-    "vue-content-placeholders": "^0.2.1",
-    "@xdn/vue": "2.0.0-alpha.1"
+    "vue-content-placeholders": "^0.2.1"
   },
   "devDependencies": {
     "@xdn/cli": "file:.yalc/@xdn/cli",
