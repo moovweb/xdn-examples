@@ -27,9 +27,7 @@
 <script>
 export default {
   async fetch() {
-    this.post = await this.$http.$get(
-      `https://jsonplaceholder.typicode.com/posts/${this.$route.params.id}`
-    );
+    this.post = await this.$http.$get(`/api/posts/${this.$route.params.id}`);
   },
   data() {
     return {

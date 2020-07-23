@@ -32,7 +32,7 @@ export default {
   },
   async fetch() {
     this.posts = await this.$http
-      .$get("https://jsonplaceholder.typicode.com/posts")
+      .$get("/api/posts")
       .then(posts => posts.slice(0, 5));
   },
   data() {

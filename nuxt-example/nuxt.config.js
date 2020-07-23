@@ -59,5 +59,11 @@ module.exports = {
         component: resolve(__dirname, "pages/posts/_id.vue")
       });
     }
+  },
+
+  publicRuntimeConfig: {
+    http: {
+      browserBaseURL: "/" // otherwise @nuxt/http will try to use 127.0.0.1 when connecting from the browser!
+    }
   }
 };
