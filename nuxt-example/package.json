@@ -14,15 +14,15 @@
   },
   "dependencies": {
     "@nuxt/http": "^0.5.10",
-    "@xdn/vue": "^2.0.0-alpha.7",
+    "@xdn/vue": "^2.0.0",
     "nuxt-start": "^2.13.1",
     "vue-content-placeholders": "^0.2.1"
   },
   "devDependencies": {
-    "@xdn/cli": "^2.0.0-alpha.7",
-    "@xdn/core": "^2.0.0-alpha.7",
-    "@xdn/nuxt": "^2.0.0-alpha.7",
-    "@xdn/prefetch": "^2.0.0-alpha.7",
+    "@xdn/cli": "^2.0.0",
+    "@xdn/core": "^2.0.0",
+    "@xdn/nuxt": "^2.0.0",
+    "@xdn/prefetch": "^2.0.0",
     "dotenv": "^8.2.0",
     "nuxt": "^2.13.1",
     "path-to-regexp": "^6.1.0",
