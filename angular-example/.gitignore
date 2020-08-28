@@ -48,3 +48,5 @@ Thumbs.db
 /.xdn
 /.yalc
 yalc.lock
+# XDN generated build directory
+.xdn
