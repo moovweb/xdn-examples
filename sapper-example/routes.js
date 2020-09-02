@@ -3,8 +3,22 @@
 const { Router } = require('@xdn/core/router')
 const { sapperRoutes } = require('@xdn/sapper')
 
+const cacheHandler = ({ removeUpstreamResponseHeader, cache }) => {
+  removeUpstreamResponseHeader('cache-control')
+  cache({
+    edge: {
+      maxAgeSeconds: 60 * 60 * 24
+    },
+    browser: {
+      serviceWorkerSeconds: 60 * 60 * 24
+    }
+  })
+}
+
 module.exports = new Router()
   .match('/service-worker.js', ({ serviceWorker }) => {
-    return serviceWorker('.next/static/service-worker.js')
+    return serviceWorker('__sapper__/dev/service-worker.js')
   })
+  .match('/blog.json', cacheHandler)
+  .match('/:path*/:file.json', cacheHandler)
   .use(sapperRoutes) // automatically adds routes for all files under /pages
