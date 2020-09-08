@@ -17,7 +17,7 @@ const cacheHandler = ({ removeUpstreamResponseHeader, cache }) => {
 
 module.exports = new Router()
   .match('/service-worker.js', ({ serviceWorker }) => {
-    return serviceWorker('__sapper__/dev/service-worker.js')
+    return serviceWorker(`__sapper__/${process.env.NODE_ENV === 'production' ? 'build' : 'dev'}/service-worker.js`)
   })
   .match('/blog.json', cacheHandler)
   .match('/:path*/:file.json', cacheHandler)

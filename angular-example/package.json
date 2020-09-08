@@ -4,6 +4,7 @@
     "xdn:start": "xdn run",
     "xdn:build": "xdn build",
     "xdn:deploy": "xdn deploy",
+    "xdn:link": "yalc add @xdn/core @xdn/cli @xdn/angular @xdn/prefetch",
     "ng": "ng",
     "build": "xdn build",
     "start": "xdn run",
