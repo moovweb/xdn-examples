@@ -1,20 +1,20 @@
-const { withServiceWorker } = require("@xdn/next/sw");
-const withXDN = require("@xdn/next/withXDN");
+const { withServiceWorker } = require('@xdn/next/sw')
+const withXDN = require('@xdn/next/withXDN')
 
 module.exports = withXDN(
   withServiceWorker({
-    rewrites: () => [
+    rewrites: async () => [
       {
-        source: "/products/:id",
-        destination: "/p/:id",
+        source: '/products/:id',
+        destination: '/p/:id',
       },
     ],
-    redirects: () => [
+    redirects: async () => [
       {
-        source: "/sale/:id",
-        destination: "/p/:id",
+        source: '/sale/:id',
+        destination: '/p/:id',
         permanent: false,
       },
     ],
   })
-);
+)

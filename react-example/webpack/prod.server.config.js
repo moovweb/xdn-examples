@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
   target: 'node',
   entry: {
-    server: './xdn/ssr.js',
+    server: './xdn/server.js',
   },
   devtool: 'none',
   mode: 'production',

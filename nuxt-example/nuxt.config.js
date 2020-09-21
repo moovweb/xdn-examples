@@ -42,7 +42,9 @@ module.exports = {
   /*
    ** Build configuration
    */
-  build: {},
+  build: {
+    standalone: true
+  },
   /*
    ** Render configuration
    */

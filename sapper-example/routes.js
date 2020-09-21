@@ -16,9 +16,6 @@ const cacheHandler = ({ removeUpstreamResponseHeader, cache }) => {
 }
 
 module.exports = new Router()
-  .match('/service-worker.js', ({ serviceWorker }) => {
-    return serviceWorker(`__sapper__/${process.env.NODE_ENV === 'production' ? 'build' : 'dev'}/service-worker.js`)
-  })
   .match('/blog.json', cacheHandler)
   .match('/:path*/:file.json', cacheHandler)
   .use(sapperRoutes) // automatically adds routes for all files under /pages
