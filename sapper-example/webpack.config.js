@@ -48,7 +48,7 @@ module.exports = {
 		output: config.server.output(),
 		target: 'node',
 		resolve: { alias, extensions, mainFields },
-		externals: ['encoding'],
+		externals: Object.keys(pkg.dependencies).concat('encoding'),
 		module: {
 			rules: [
 				{
