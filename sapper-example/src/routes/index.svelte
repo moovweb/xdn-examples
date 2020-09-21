@@ -49,5 +49,3 @@ import { env } from "process";
 </figure>
 
 <p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
-
-<p>process.env.NODE_ENV={process.env.NODE_ENV}</p>
