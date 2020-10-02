@@ -18,6 +18,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@xdn/cli": "file:.yalc/@xdn/cli",
     "gatsby": "^2.24.66",
     "gatsby-image": "^2.4.20",
     "gatsby-plugin-manifest": "^2.4.32",
