@@ -73,3 +73,5 @@ yarn-error.log
 .xdn
 # XDN generated build directory
 .xdn
+# XDN generated build directory
+.xdn
