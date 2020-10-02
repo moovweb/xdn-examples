@@ -3,18 +3,21 @@ const withXDN = require('@xdn/next/withXDN')
 
 module.exports = withXDN(
   withServiceWorker({
-    rewrites: async () => [
-      {
-        source: '/products/:id',
-        destination: '/p/:id',
-      },
-    ],
-    redirects: async () => [
-      {
-        source: '/sale/:id',
-        destination: '/p/:id',
-        permanent: false,
-      },
-    ],
+    async rewrites() {
+      return [
+        {
+          source: '/products/:id',
+          destination: '/p/:id',
+        },
+        {
+          source: process.env.BOYS_ROUTE || '/boys',
+          destination: '/category/boys',
+        },
+        {
+          source: '/boys/:slug*',
+          destination: '/category/boys/:slug*',
+        },
+      ]
+    },
   })
 )

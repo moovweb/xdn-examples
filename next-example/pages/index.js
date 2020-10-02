@@ -12,6 +12,8 @@ const Home = () => (
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </h1>
 
+      <p>Api Key:</p>
+
       <p className="description">
         Get started by editing <code>pages/index.js</code>
       </p>

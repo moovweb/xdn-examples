@@ -1,0 +1,47 @@
+{
+  "name": "shopware-pwa-project",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "shopware-pwa build",
+    "dev": "shopware-pwa dev",
+    "generate": "nuxt generate",
+    "lint": "prettier --write '*.{js,vue}'",
+    "shopware-pwa": "shopware-pwa",
+    "start": "nuxt start",
+    "test": "jest",
+    "xdn": "xdn",
+    "xdn:build": "xdn build",
+    "xdn:deploy": "xdn deploy",
+    "xdn:start": "xdn run",
+    "xdn:link": "yalc add @xdn/core @xdn/cli @xdn/prefetch @xdn/nuxt @xdn/vue"
+  },
+  "dependencies": {
+    "nuxt-start": "^2.14.6"
+  },
+  "devDependencies": {
+    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/pwa": "^3.0.2",
+    "@shopware-pwa/cli": "^0.4.0",
+    "@shopware-pwa/composables": "^0.4.0",
+    "@shopware-pwa/default-theme": "^0.4.0",
+    "@shopware-pwa/helpers": "^0.4.0",
+    "@shopware-pwa/nuxt-module": "^0.4.0",
+    "@shopware-pwa/shopware-6-client": "^0.4.0",
+    "@vue/test-utils": "^1.1.0",
+    "@xdn/cli": "file:.yalc/@xdn/cli",
+    "@xdn/core": "file:.yalc/@xdn/core",
+    "@xdn/nuxt": "file:.yalc/@xdn/nuxt",
+    "@xdn/prefetch": "^2.16.0",
+    "@xdn/vue": "^2.16.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^26.3.0",
+    "core-js": "^3.6.5",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.4.2",
+    "nuxt": "^2.14.5",
+    "prettier": "^2.1.1",
+    "vue-jest": "^3.0.4"
+  }
+}
