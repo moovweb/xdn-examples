@@ -3508,10 +3508,8 @@
   dependencies:
     tslib "^1.9.3"
 
-"@xdn/core@^2.20.1":
+"@xdn/core@file:packages/commercetools/theme/.yalc/@xdn/core":
   version "2.20.1"
-  resolved "https://registry.yarnpkg.com/@xdn/core/-/core-2.20.1.tgz#3a2b01443fd3354558bc78947808092735f1ec03"
-  integrity sha512-w+/2XKyDcInJY2hrjb7RbiTZmXNHvy55TWx42Wj6Ayp4mA3hwYRBAhoL2RrH7hFPmQOFDVBV3NtN186BvnOeKA==
   dependencies:
     ajv "^6.12.3"
     babel-loader "^8.1.0"
