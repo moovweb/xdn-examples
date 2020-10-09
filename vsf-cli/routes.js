@@ -1,5 +1,6 @@
 const { Router } = require('@xdn/core/router')
 const { nuxtRoutes, renderNuxtPage } = require('@xdn/nuxt')
+const { decompressRequest } = require('@xdn/apollo')
 
 const HTML = {
   edge: {
@@ -22,6 +23,18 @@ module.exports = new Router()
   .get('/', cacheHTML)
   .get('/c/:slug*', cacheHTML)
   .get('/p/:slug*', cacheHTML)
-  .match('/:env/graphql', ({ proxy }) => proxy('api'))
+  .match('/:env/graphql', ({ proxy, cache }) => {
+    cache({
+      edge: {
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+      },
+      browser: {
+        serviceWorkerSeconds: 60 * 60 * 24 * 365,
+      }
+    })
+    proxy('api', { 
+      transformRequest: decompressRequest 
+    })
+  })
   .use(nuxtRoutes)
   .fallback(renderNuxtPage)

@@ -9,7 +9,8 @@
     "build:analyze": "nuxt build -a -m",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "patch-package"
   },
   "name": "vsf-cli",
   "description": "My breathtaking Nuxt.js project",
@@ -19,7 +20,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@nuxt/core": "^2.13.3"
+    "@nuxt/core": "^2.13.3",
+    "@xdn/apollo": "file:.yalc/@xdn/apollo",
+    "lz-string": "^1.4.4"
   },
   "devDependencies": {
     "@nuxt/types": "^0.7.9",
@@ -40,6 +43,7 @@
     "jest": "^24.1.0",
     "nuxt": "^2.13.3",
     "nuxt-i18n": "^6.5.0",
+    "patch-package": "^6.2.2",
     "vee-validate": "^3.2.3",
     "vue-jest": "^4.0.0-0",
     "vue-scrollto": "^2.17.1"
