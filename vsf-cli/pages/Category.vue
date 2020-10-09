@@ -107,25 +107,29 @@
           tag="div"
           class="products__grid"
         >
-          <SfProductCard
-            data-cy="category-product-card"
+          <Prefetch
+            :url="createProductURL(product)"
             v-for="(product, i) in products"
-            :key="productGetters.getSlug(product)"
-            :style="{ '--index': i }"
-            :title="productGetters.getName(product)"
-            :image="productGetters.getCoverImage(product)"
-            :regular-price="productGetters.getFormattedPrice(productGetters.getPrice(product).regular)"
-            :special-price="productGetters.getFormattedPrice(productGetters.getPrice(product).special)"
-            :max-rating="5"
-            :score-rating="3"
-            :show-add-to-cart-button="true"
-            :isOnWishlist="false"
-            :isAddedToCart="isOnCart(product)"
-            @click:wishlist="addToWishlist(product)"
-            @click:add-to-cart="addToCart(product, 1)"
-            :link="localePath(`/p/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
-            class="products__product-card"
-          />
+            :key="productGetters.getSlug(product)" 
+          >
+            <SfProductCard
+              data-cy="category-product-card"
+              :style="{ '--index': i }"
+              :title="productGetters.getName(product)"
+              :image="productGetters.getCoverImage(product)"
+              :regular-price="productGetters.getFormattedPrice(productGetters.getPrice(product).regular)"
+              :special-price="productGetters.getFormattedPrice(productGetters.getPrice(product).special)"
+              :max-rating="5"
+              :score-rating="3"
+              :show-add-to-cart-button="true"
+              :isOnWishlist="false"
+              :isAddedToCart="isOnCart(product)"
+              @click:wishlist="addToWishlist(product)"
+              @click:add-to-cart="addToCart(product, 1)"
+              :link="localePath(`/p/${productGetters.getId(product)}/${productGetters.getSlug(product)}`)"
+              class="products__product-card"
+            />
+          </Prefetch>
         </transition-group>
         <transition-group
           v-else
@@ -255,6 +259,8 @@ import { useUiHelpers } from '~/composables';
 import uiState from '~/assets/ui-state';
 import { onSSR } from '@vue-storefront/core';
 import Filters from '../components/Filters';
+import { Prefetch } from '@xdn/vue'
+import createProductURL from '~/xdn/createProductURL'
 
 export default {
   transition: 'fade',
@@ -290,7 +296,8 @@ export default {
       breadcrumbs,
       addToWishlist,
       addToCart,
-      isOnCart
+      isOnCart,
+      createProductURL
     };
   },
   components: {
@@ -309,7 +316,8 @@ export default {
     SfLoader,
     SfColor,
     SfHeading,
-    Filters
+    Filters,
+    Prefetch
   }
 };
 </script>
