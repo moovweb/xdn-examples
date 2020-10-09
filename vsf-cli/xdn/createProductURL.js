@@ -12,7 +12,7 @@ const getVariables = (params) => {
     offset: params.offset,
     locale,
     acceptLanguage,
-    currency,
+    currency, 
     country
   }
 }

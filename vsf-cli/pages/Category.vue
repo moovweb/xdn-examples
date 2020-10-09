@@ -90,7 +90,9 @@
                 <SfListItem class="list__item" v-for="(subCat, j) in cat.items" :key="j">
                   <SfMenuItem :data-cy="`category-link_subcategory_${subCat.slug}`" :label="subCat.label">
                     <template #label="{ label }">
-                      <nuxt-link :to="localePath(th.getCatLink(subCat))" :class="subCat.isCurrent ? 'sidebar--cat-selected' : ''">{{ label }}</nuxt-link>
+                      <Prefetch :url="createCategoryURL(subCat)">
+                        <nuxt-link :to="localePath(th.getCatLink(subCat))" :class="subCat.isCurrent ? 'sidebar--cat-selected' : ''">{{ label }}</nuxt-link>
+                      </Prefetch>
                     </template>
                   </SfMenuItem>
                 </SfListItem>
@@ -260,6 +262,7 @@ import uiState from '~/assets/ui-state';
 import { onSSR } from '@vue-storefront/core';
 import Filters from '../components/Filters';
 import { Prefetch } from '@xdn/vue'
+import createCategoryURL from '~/xdn/createCategoryURL'
 import createProductURL from '~/xdn/createProductURL'
 
 export default {
@@ -297,6 +300,7 @@ export default {
       addToWishlist,
       addToCart,
       isOnCart,
+      createCategoryURL,
       createProductURL
     };
   },
