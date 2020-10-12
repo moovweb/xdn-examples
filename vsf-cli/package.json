@@ -2,7 +2,7 @@
   "scripts": {
     "xdn": "xdn",
     "xdn:start": "xdn run",
-    "xdn:build": "xdn build",
+    "xdn:build": "YALC=true xdn build",
     "xdn:deploy": "xdn deploy platform",
     "dev": "nuxt",
     "build": "nuxt build",
