@@ -23,7 +23,12 @@ module.exports = new Router()
   .get('/', cacheHTML)
   .get('/c/:slug*', cacheHTML)
   .get('/p/:slug*', cacheHTML)
-  .match('/:env/graphql', ({ proxy, cache }) => {
+  .post('/:env/graphql', ({ proxy }) => {
+    proxy('api')
+  })
+  .get({
+    path: '/:env/graphql', 
+  }, ({ proxy, cache }) => {
     cache({
       edge: {
         maxAgeSeconds: 60 * 60 * 24 * 365,
