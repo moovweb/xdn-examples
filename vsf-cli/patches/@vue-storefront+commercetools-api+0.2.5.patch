@@ -1,5 +1,5 @@
 diff --git a/node_modules/@vue-storefront/commercetools-api/lib/index.cjs.js b/node_modules/@vue-storefront/commercetools-api/lib/index.cjs.js
-index 4b63019..b2538ca 100644
+index c8042bf..3da0292 100644
 --- a/node_modules/@vue-storefront/commercetools-api/lib/index.cjs.js
 +++ b/node_modules/@vue-storefront/commercetools-api/lib/index.cjs.js
 @@ -180,7 +180,7 @@ var restrictedOperations = [
@@ -7,7 +7,7 @@ index 4b63019..b2538ca 100644
  var createCommerceToolsLink = function () {
      var _a = getSettings(), api = _a.api, currentToken = _a.currentToken, auth = _a.auth;
 -    var httpLink = apolloLinkHttp.createHttpLink({ uri: api.uri, fetch: fetch });
-+    var httpLink = require('@xdn/apollo').createHttpLink({ uri: api.uri }, fetch, { convertOperationsToGet: ['categories', 'products'] })
++    var httpLink = require('@xdn/apollo').createHttpLink({ uri: api.uri, convertOperationsToGet: ['categories', 'products'] }, fetch)
      var authLink = apolloLinkContext.setContext(function (req, _a) {
          var headers = _a.headers;
          return __awaiter(void 0, void 0, void 0, function () {

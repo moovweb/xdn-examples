@@ -18,7 +18,7 @@
     "@xdn/core": "file:.yalc/@xdn/core",
     "@xdn/next": "file:.yalc/@xdn/next",
     "@xdn/prefetch": "file:.yalc/@xdn/prefetch",
-    "@xdn/react": "^2.17.0",
+    "@xdn/react": "file:.yalc/@xdn/react",
     "globby": "^11.0.1",
     "isomorphic-git": "^1.7.8",
     "next": "^9.5.3",
