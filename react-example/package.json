@@ -13,7 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@xdn/core": "^2.11.1"
+    "@xdn/cli": "file:.yalc/@xdn/cli",
+    "@xdn/core": "file:.yalc/@xdn/core"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

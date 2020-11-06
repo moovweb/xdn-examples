@@ -3,6 +3,7 @@ const withXDN = require('@xdn/next/withXDN')
 
 module.exports = withXDN(
   withServiceWorker({
+    distDir: 'build',
     async rewrites() {
       return [
         {
