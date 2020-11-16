@@ -1,13 +1,22 @@
 import Link from 'next/Link'
+import { useRouter } from 'next/router'
 
 export default function StaticPage({ id }) {
+  const { isFallback, locale } = useRouter()
+
+  if (isFallback) {
+    return <div>Loading...</div>
+  }
+
   return (
     <div>
-      <h1>Static {id}</h1>
+      <h1>
+        Static {id} ({locale})
+      </h1>
       <ul>
-        {[1, 2, 3].map((id) => (
+        {[1, 2, 3, 4].map((id) => (
           <li key={id}>
-            <Link href={`/static/${id}`}>
+            <Link href={`/${locale}/static/${id}`}>
               <a>Static {id}</a>
             </Link>
           </li>
@@ -18,10 +27,15 @@ export default function StaticPage({ id }) {
 }
 
 export function getStaticPaths() {
-  return {
-    paths: [{ params: { id: '1' } }, { params: { id: '2' } }, { params: { id: '3' } }],
-    fallback: true,
+  const paths = []
+
+  for (let id of ['1', '2', '3', '4']) {
+    for (let locale of ['en-US', 'fr', 'nl-NL']) {
+      paths.push({ params: { id, locale } })
+    }
   }
+
+  return { paths, fallback: true }
 }
 
 export function getStaticProps({ params }) {
