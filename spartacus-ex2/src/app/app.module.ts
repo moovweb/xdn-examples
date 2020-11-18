@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -10,7 +10,7 @@ import { B2cStorefrontModule } from '@spartacus/storefront';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
@@ -32,7 +32,8 @@ import { B2cStorefrontModule } from '@spartacus/storefront';
       features: {
         level: '2.1'
       }
-    })
+    }),
+    BrowserTransferStateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
