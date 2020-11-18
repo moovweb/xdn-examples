@@ -4,6 +4,12 @@
 import '@angular/localize/init';
 import 'zone.js/dist/zone-node';
 
+// xdn
+import * as http from 'http';
+import * as https from 'https';
+import createRenderCallback from '@xdn/spartacus/server/createRenderCallback';
+import installXdnMiddleware from '@xdn/spartacus/server/installXdnMiddleware';
+
 import { ngExpressEngine as engine } from '@nguniversal/express-engine';
 import { NgExpressEngineDecorator } from '@spartacus/core';
 import * as express from 'express';
@@ -22,6 +28,8 @@ export function app() {
   const indexHtml = existsSync(join(distFolder, 'index.original.html'))
     ? 'index.original.html'
     : 'index';
+
+  installXdnMiddleware({ server, http, https });
 
   server.engine(
     'html',
@@ -43,17 +51,21 @@ export function app() {
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
-    res.render(indexHtml, {
-      req,
-      providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }],
-    });
+    res.render(
+      indexHtml,
+      {
+        req,
+        providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }],
+      },
+      createRenderCallback(res),
+    );
   });
 
   return server;
 }
 
 function run() {
-  const port = process.env.PORT || 4000;
+  const port = process.env.PORT || 4200;
 
   // Start up the Node server
   const server = app();
