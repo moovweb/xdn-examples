@@ -4,10 +4,10 @@
 // You should commit this file to source control.
 
 module.exports = {
-  server: {
-    path: 'dist/spartacus-ex2/server/main.js',
-    export: 'app',
-  },
+  // server: {
+  //   path: 'dist/spartacus-ex2/server/main.js',
+  //   export: 'app',
+  // },
   backends: {
     commerce: {
       domainOrIp: 'aemspartacusapi.tmg.codes',

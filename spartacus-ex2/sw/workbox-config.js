@@ -10,6 +10,6 @@ module.exports = {
   // Allows to avoid using cache busting for Angular files because Angular already takes care of that!
   dontCacheBustURLsMatching: new RegExp('.+.[a-f0-9]{20}..+'),
   maximumFileSizeToCacheInBytes: 4 * 1024 * 1024, // 4Mb
-  swSrc: 'dist/spartacus-ex2/browser/service-worker.js',
+  swSrc: 'dist/__xdn__/service-worker.js',
   swDest: 'dist/spartacus-ex2/browser/service-worker.js',
 }

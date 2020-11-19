@@ -2,7 +2,7 @@
 
 const path = require('path')
 const webpack = require('webpack')
-const webBuildTargetFolder = path.join(__dirname, '..', 'dist', 'spartacus-ex2', 'browser')
+const webBuildTargetFolder = path.join(__dirname, '..', 'dist', '__xdn__')
 const targetServiceWorkerFilename = 'service-worker.js'
 
 module.exports = {

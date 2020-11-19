@@ -15,6 +15,7 @@ import { B2cStorefrontModule } from '@spartacus/storefront';
       backend: {
         occ: {
           baseUrl: 'http://localhost:3000',
+          // baseUrl: 'https://aemspartacusapi.tmg.codes',
           prefix: '/rest/v2/'
         }
       },

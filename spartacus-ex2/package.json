@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build:pwa:web": "rimraf ./dist/spartacus-ex2/browser/service-worker.js && webpack --config ./sw/webpack.prod.config.js --progress --colors && node ./sw/workbox-build-inject.js",
-    "postbuild:ssr": "npm run build:pwa:web",
+    "build:sw:prod": "webpack --config ./sw/webpack.prod.config.js --progress --colors",
+    "build:sw:dev": "webpack --config ./sw/webpack.dev.config.js --progress --colors",
     "xdn": "xdn",
     "xdn:start": "xdn run",
     "xdn:build": "xdn build",
@@ -15,7 +15,10 @@
     "dev:ssr": "ng run spartacus-ex2:serve-ssr",
     "serve:ssr": "node dist/spartacus-ex2/server/main.js",
     "build:ssr": "ng build --prod && ng run spartacus-ex2:server:production",
-    "prerender": "ng run spartacus-ex2:prerender"
+    "postbuild:ssr": "npm run build:sw:prod",
+    "prerender": "ng run spartacus-ex2:prerender",
+    "dev:link": "yalc add @xdn/cli @xdn/core @xdn/prefetch @xdn/angular @xdn/spartacus @xdn/devtools",
+    "chrome": "open -a Google\\ Chrome --args --disable-web-security --user-data-dir=$(pwd)/chrome"
   },
   "name": "spartacus-ex2",
   "version": "0.0.0",

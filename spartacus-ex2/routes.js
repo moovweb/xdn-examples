@@ -1,7 +1,7 @@
 // This file was automatically added by xdn deploy.
 // You should commit this file to source control.
 
-const { Router } = require('@xdn/core/Router')
+const { Router } = require('@xdn/core/router')
 const { angularRoutes } = require('@xdn/angular')
 
 const PAGE_TTL = 60 * 60 * 24
@@ -45,8 +45,9 @@ const CACHE_ASSETS = {
 }
 
 module.exports = new Router()
-  .match('/rest/v2/:path*', ({ cache, proxy }) => {
+  .match('/rest/v2/:path*', ({ cache, proxy, removeRequestHeader }) => {
     cache(CACHE_API)
+    removeRequestHeader('Origin')
     proxy('commerce')
   })
   .match('/medias/:path*', ({ cache, proxy }) => {
@@ -56,12 +57,7 @@ module.exports = new Router()
   .post('/authorizationserver/oauth/:path*', ({ proxy }) => {
     proxy('commerce')
   })
-  // Example Route:
-  // .match('/products/:path', ({ cache }) => {
-  //   cache(CACHE_PAGE)
-  // })
-  .match('/service-worker.js', ({ setResponseHeader, serviceWorker }) => {
-    setResponseHeader('content-type', 'application/javascript')
-    serviceWorker('dist/spartacus-ex2/browser/service-worker.js')
+  .get('/electronics-spa/:path*', ({ cache }) => {
+    cache(CACHE_PAGE)
   })
   .use(angularRoutes)
