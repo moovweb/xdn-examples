@@ -13,6 +13,12 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
 
+// xdn
+import * as http from 'http';
+import * as https from 'https';
+import createRenderCallback from '@xdn/spartacus/server/createRenderCallback';
+import installXdnMiddleware from '@xdn/spartacus/server/installXdnMiddleware';
+
 const ngExpressEngine = NgExpressEngineDecorator.get(engine);
 
 // The Express app is exported so that it can be used by serverless Functions.
@@ -22,6 +28,8 @@ export function app() {
   const indexHtml = existsSync(join(distFolder, 'index.original.html'))
     ? 'index.original.html'
     : 'index';
+
+  installXdnMiddleware({ server, http, https });
 
   server.engine(
     'html',
@@ -43,10 +51,14 @@ export function app() {
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {
-    res.render(indexHtml, {
-      req,
-      providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }],
-    });
+    res.render(
+      indexHtml,
+      {
+        req,
+        providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }],
+      },
+      createRenderCallback(res),
+    );
   });
 
   return server;
