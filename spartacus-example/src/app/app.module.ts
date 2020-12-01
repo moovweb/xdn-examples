@@ -14,14 +14,13 @@ import { B2cStorefrontModule } from '@spartacus/storefront';
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
-          baseUrl: 'http://localhost:3000',
+          baseUrl: typeof window !== 'undefined' ? `${window.location.protocol}//${window.location.host}` : 'http://localhost:3000',
           prefix: '/rest/v2/'
         }
       },
       context: {
         currency: ['USD'],
         language: ['en'],
-        urlParameters: ['baseSite', 'language', 'currency'],
         baseSite: ['electronics-spa'],
       },
       i18n: {

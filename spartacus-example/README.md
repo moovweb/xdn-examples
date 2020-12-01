@@ -9,7 +9,6 @@ These instructions were followed:
 ```bash
 ng new spartacus-example --style=scss
 cd spartacus-example/
-ng add @spartacus/schematics
 ng add @spartacus/schematics --ssr
 ```
 
