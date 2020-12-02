@@ -3,19 +3,12 @@
     <button @click="$fetch">
       Refresh
     </button>
-    <template v-if="$fetchState.pending">
-      <content-placeholders>
-        <content-placeholders-heading />
-        <content-placeholders-text :lines="4" />
-      </content-placeholders>
-    </template>
-    <template v-else-if="$fetchState.error">
-      <h1>Post #{{ $route.params.id }} not found</h1>
-    </template>
-    <template v-else>
+    <p v-if="$fetchState.pending">Fetching post...</p>
+    <p v-else-if="$fetchState.error">An error occurred :(</p>
+    <div v-else>
       <h1>{{ post.title }}</h1>
       <pre>{{ post.body }}</pre>
-    </template>
+    </div>
     <p>
       <n-link to="/">
         Home
@@ -27,15 +20,16 @@
 <script>
 export default {
   async fetch() {
-    this.post = await this.$http.$get(`/api/posts/${this.$route.params.id}`);
+    const { params } = this.$route
+    this.post = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`).then(res => res.json());
   },
   data() {
     return {
-      post: {}
+      post: null
     };
   },
   head() {
-    return { title: this.post.title };
+    return { title: this.post ? this.post.title : 'Loading...' };
   }
 };
 </script>

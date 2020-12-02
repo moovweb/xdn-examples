@@ -10,5 +10,4 @@ module.exports = {
       hostHeader: 'jsonplaceholder.typicode.com',
     },
   },
-  includeNodeModules: true,
 }

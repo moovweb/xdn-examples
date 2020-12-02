@@ -18,6 +18,7 @@
   "dependencies": {
     "compression": "^1.7.1",
     "polka": "next",
+    "shelljs": "^0.8.4",
     "sirv": "^1.0.0"
   },
   "devDependencies": {

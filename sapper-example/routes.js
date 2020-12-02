@@ -16,6 +16,13 @@ const cacheHandler = ({ removeUpstreamResponseHeader, cache }) => {
 }
 
 module.exports = new Router()
+  .get('/', ({ cache }) => {
+    cache({
+      edge: {
+        maxAgeSeconds: 60 * 60 * 24
+      }
+    })
+  })
   .match('/blog.json', cacheHandler)
   .match('/:path*/:file.json', cacheHandler)
   .use(sapperRoutes) // automatically adds routes for all files under /pages

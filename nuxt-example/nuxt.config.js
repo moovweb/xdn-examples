@@ -1,71 +1,37 @@
-// This file was automatically added by xdn init.
+export default {
+  target: 'static',
 
-// You should commit this file to source control.
-module.exports = {
-  mode: "universal",
-  /*
-   ** Headers of the page
-   */
+  // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: process.env.npm_package_name || "",
+    title: 'nuxt-serverless-example',
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      {
-        hid: "description",
-        name: "description",
-        content: process.env.npm_package_description || ""
-      }
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
-  },
-  /*
-   ** Customize the progress-bar color
-   */
-  loading: { color: "#fff" },
-  /*
-   ** Global CSS
-   */
-  css: [],
-  /*
-   ** Plugins to load before mounting the App
-   */
-  plugins: ["@/plugins/vue-placeholders.js"],
-  /*
-   ** Nuxt.js dev-modules
-   */
-  buildModules: [],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: ["@nuxt/http", "@xdn/nuxt/module"],
-  /*
-   ** Build configuration
-   */
-  build: {
-    standalone: true
-  },
-  /*
-   ** Render configuration
-   */
-  render: {
-    /*
-     ** XDN already does compression:
-     */
-    compressor: false
-  },
-  router: {
-    extendRoutes(routes, resolve) {
-      routes.push({
-        path: "/foo/:id?",
-        component: resolve(__dirname, "pages/posts/_id.vue")
-      });
-    }
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  publicRuntimeConfig: {
-    http: {
-      browserBaseURL: "/" // otherwise @nuxt/http will try to use 127.0.0.1 when connecting from the browser!
-    }
-  }
-};
+  // Global CSS (https://go.nuxtjs.dev/config-css)
+  css: [],
+
+  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
+  plugins: [],
+
+  // Auto import components (https://go.nuxtjs.dev/config-components)
+  components: true,
+
+  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
+  buildModules: ['@nuxt/serverless', '@xdn/nuxt/module'],
+
+  // Modules (https://go.nuxtjs.dev/config-modules)
+  modules: [],
+
+  // Build Configuration (https://go.nuxtjs.dev/config-build)
+  build: {},
+
+  // https://serverless.nuxtjs.org/options
+  serverless: {
+    target: 'vercel',
+  },
+}

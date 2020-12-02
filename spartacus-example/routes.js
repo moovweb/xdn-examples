@@ -10,7 +10,7 @@ const FAR_FUTURE_TTL = 60 * 60 * 24 * 365 * 10
 module.exports = app => {
   const { angularMiddleware } = createAngularPlugin(app)
   return new Router()
-    .match('/rest/v2/*path', ({ cache, proxy }) => {
+    .match('/rest/v2/:path*', ({ cache, proxy }) => {
       cache({
         browser: {
           maxAgeSeconds: PAGE_TTL,
@@ -23,7 +23,7 @@ module.exports = app => {
       })
       return proxy('commerce')
     })
-    .match('/medias/*path', ({ cache, proxy }) => {
+    .match('/medias/:path*', ({ cache, proxy }) => {
       cache({
         browser: {
           maxAgeSeconds: PAGE_TTL,
@@ -36,7 +36,7 @@ module.exports = app => {
       })
       return proxy('commerce')
     })
-    .match('/Open-Catalogue/*path', ({cache}) => {
+    .match('/Open-Catalogue/:path*', ({cache}) => {
       cache({
         browser: {
           maxAgeSeconds: PAGE_TTL,
@@ -49,7 +49,7 @@ module.exports = app => {
         },
       })
     })
-    .match('/product/*path', ({cache}) => {
+    .match('/product/:path*', ({cache}) => {
       cache({
         browser: {
           maxAgeSeconds: PAGE_TTL,
