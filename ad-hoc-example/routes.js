@@ -1,6 +1,5 @@
 // This file was automatically added by xdn deploy.
 // You should commit this file to source control.
-const { BACKENDS } = require('@xdn/core/constants')
 const { Router } = require('@xdn/core/router')
 const { isProductionBuild } = require('@xdn/core/environment')
 
@@ -29,22 +28,31 @@ const FAR_FUTURE_CACHE_CONFIG = {
 }
 
 module.exports = new Router()
+  // the service worker
   .match('/service-worker.js', ({ serviceWorker }) => {
     serviceWorker(
       `__sapper__/${isProductionBuild() ? 'build' : 'dev'}/service-worker.js`
     )
   })
+
+  // assets in the static directory
   .static('static', { handler: () => res => res.cache(PUBLIC_CACHE_CONFIG) })
-  .match('/client/:path*', async ({ proxy, serveStatic, cache }) => {
+  
+  // browser js assets
+  .match('/client/:path*', async ({ renderWithApp, serveStatic, cache }) => {
     if (isProductionBuild()) {
       cache(FAR_FUTURE_CACHE_CONFIG)
       serveStatic('__sapper__/build/client/:path*')
     } else {
-      proxy(BACKENDS.js)
+      renderWithApp()
     }
   })
+  
+  // cache the homepage at the egde
   .get('/', ({ cache }) => cache(HTML_CACHE_CONFIG))
+  
+  // webpack hot module reloading
   .match('/__sapper__', ({ stream }) => stream('__js__'))
-  .fallback(({ proxy }) => {
-    proxy(BACKENDS.js)
-  })
+  
+  // send all unmatched requests to Sapper
+  .fallback(({ renderWithApp }) => renderWithApp())
