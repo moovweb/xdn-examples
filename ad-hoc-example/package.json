@@ -3,13 +3,16 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "xdn dev",
-    "build": "npx sapper build",
-    "deploy": "npm run build && xdn deploy"
+    "prod": "npm run build && xdn build && xdn run -p",
+    "build": "NODE_ENV=production npx sapper build",
+    "deploy": "npm run build && xdn deploy",
+    "xdn:link": "yalc add @xdn/core @xdn/cli @xdn/prefetch @xdn/devtools"
   },
   "devDependencies": {
     "@xdn/cli": "file:.yalc/@xdn/cli",
     "@xdn/core": "file:.yalc/@xdn/core",
-    "@xdn/prefetch": "^2.30.1",
+    "@xdn/devtools": "file:.yalc/@xdn/devtools",
+    "@xdn/prefetch": "file:.yalc/@xdn/prefetch",
     "compression": "^1.7.4",
     "polka": "^0.5.2",
     "sapper": "^0.28.0",
