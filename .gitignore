@@ -109,3 +109,5 @@ dist
 yalc.lock
 
 .DS_Store
+
+.idea
