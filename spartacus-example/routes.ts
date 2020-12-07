@@ -58,7 +58,7 @@ export default new Router()
     proxy('commerce')
   })
   // Example route that forces prefetching of requests listed in an x-xdn-upstream-requests header
-  .get('/electronics-spa/:lang/:curr/:path*', ({ cache }) => {
+  .get('/electronics-spa/:path*', ({ cache }) => {
     cache(CACHE_PAGE)
   })
   .use(angularRoutes)
