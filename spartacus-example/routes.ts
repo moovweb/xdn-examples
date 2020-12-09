@@ -22,7 +22,6 @@ const CACHE_API = {
 const CACHE_ASSETS = {
   browser: {
     maxAgeSeconds: PAGE_TTL,
-    serviceWorkerSeconds: PAGE_TTL,
   },
   edge: {
     maxAgeSeconds: FAR_FUTURE_TTL,
@@ -31,11 +30,8 @@ const CACHE_ASSETS = {
   },
 }
 
-const CACHE_PAGE = {
-  browser: {
-    maxAgeSeconds: PAGE_TTL * 365,
-    serviceWorkerSeconds: PAGE_TTL * 365,
-  },
+const CACHE_SSR_PAGE = {
+  prefetchUpstreamRequests: true,
   edge: {
     maxAgeSeconds: PAGE_TTL * 365,
     staleWhileRevalidateSeconds: PAGE_TTL * 365,
@@ -59,6 +55,6 @@ export default new Router()
   })
   // Example route that forces prefetching of requests listed in an x-xdn-upstream-requests header
   .get('/electronics-spa/:path*', ({ cache }) => {
-    cache(CACHE_PAGE)
+    cache(CACHE_SSR_PAGE)
   })
   .use(angularRoutes)

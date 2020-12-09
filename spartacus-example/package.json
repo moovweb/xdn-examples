@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev:ssr": "ng run spartacus-example:serve-ssr",
+    "dev:ssr": "ng run spartacus-example:serve-ssr --port=3001",
     "serve:ssr": "node dist/spartacus-example/server/main.js",
     "build:ssr": "ng build --prod && ng run spartacus-example:server:production",
     "prerender": "ng run spartacus-example:prerender",
@@ -43,12 +43,12 @@
     "@spartacus/core": "^2.1.4",
     "@spartacus/storefront": "^2.1.4",
     "@spartacus/styles": "^2.1.4",
-    "@xdn/angular": "2.30.2-next-1606253356-e4d6e32e.0",
-    "@xdn/cli": "2.30.2-next-1606253356-e4d6e32e.0",
-    "@xdn/core": "2.30.2-next-1606253356-e4d6e32e.0",
-    "@xdn/devtools": "2.30.2-next-1606253356-e4d6e32e.0",
-    "@xdn/prefetch": "2.30.2-next-1606253356-e4d6e32e.0",
-    "@xdn/spartacus": "2.30.2-next-1606253356-e4d6e32e.0",
+    "@xdn/angular": "^2.30.2-next-1607463092-1162d135.0",
+    "@xdn/cli": "^2.30.2-next-1607463092-1162d135.0",
+    "@xdn/core": "^2.30.2-next-1607463092-1162d135.0",
+    "@xdn/devtools": "^2.30.2-next-1607463092-1162d135.0",
+    "@xdn/prefetch": "^2.30.2-next-1607463092-1162d135.0",
+    "@xdn/spartacus": "^2.30.2-next-1607463092-1162d135.0",
     "bootstrap": "4.2.1",
     "express": "^4.15.2",
     "i18next": "^19.3.4",
@@ -82,6 +82,6 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3",
     "webpack-cli": "^4.2.0",
-    "workbox-build": "^5.1.4"
+    "workbox-build": "^6.0.2"
   }
 }
