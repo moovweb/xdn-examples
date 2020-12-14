@@ -1,10 +1,8 @@
 
+const { join } = require('path')
+
 module.exports = {
-  // The following is run during "xdn dev". Don't bundle in production - we don't need it there
-  dev: process.env.NODE_ENV === 'production' ? null : eval('require')('./xdn/dev'),
-  
-  // The following starts the Sapper app server in production
-  prod: require('./xdn/prod'),
+  connector: join(__dirname, 'xdn-entrypoints'),
   
   // Include the following files in the production bundle because sapper needs them at runtime.
   includeFiles: {
@@ -18,5 +16,7 @@ module.exports = {
     // sapper specifically checks the file system for its presence before
     // deciding to register it in the browser
     '__sapper__/build/service-worker.js': true
-  }
+  },
+  
+  includeNodeModules: true
 }

@@ -14,11 +14,11 @@
     "deploy:dev": "xdn deploy --api-url=https://moovweb-dev.app --token=MaNB6oVp1Qr54M65sDXyXuNA"
   },
   "dependencies": {
-    "@xdn/cli": "^2.30.2",
-    "@xdn/core": "^2.30.2",
-    "@xdn/next": "^2.30.2",
-    "@xdn/prefetch": "^2.30.2",
-    "@xdn/react": "^2.30.2",
+    "@xdn/cli": "file:.yalc/@xdn/cli",
+    "@xdn/core": "file:.yalc/@xdn/core",
+    "@xdn/next": "file:.yalc/@xdn/next",
+    "@xdn/prefetch": "file:.yalc/@xdn/prefetch",
+    "@xdn/react": "file:.yalc/@xdn/react",
     "globby": "^11.0.1",
     "isomorphic-git": "^1.7.8",
     "next": "^10.0.1",
@@ -31,6 +31,7 @@
   "devDependencies": {
     "next-offline": "^5.0.0",
     "typescript": "^4.0.5",
+    "webpack": "^4.44.2",
     "webpack-bundle-analyzer": "^3.9.0",
     "workbox-build": "^5.1.2"
   }

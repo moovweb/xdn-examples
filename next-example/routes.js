@@ -7,6 +7,26 @@ const router = new Router()
   .match('/service-worker.js', ({ serviceWorker }) => {
     serviceWorker('.next/static/service-worker.js')
   })
+  .match('/missing-file', ({ serveStatic }) => {
+    serveStatic('path/that/does/not/exist.html', {
+      onNotFound: async () => {
+        await serveStatic(`.next/serverless/pages/404.html`, {
+          statusCode: 404,
+          statusMessage: 'Not Found',
+        })
+      },
+    })
+  })
+  .match('/missing-files/:path*', ({ serveStatic }) => {
+    serveStatic('path/that/does/not/exist/:path*.html', {
+      onNotFound: async () => {
+        await serveStatic(`.next/serverless/pages/404.html`, {
+          statusCode: 404,
+          statusMessage: 'Not Found',
+        })
+      },
+    })
+  })
   .match('/_next/data/:build/p/:id.json', ({ cache }) => {
     cache({
       edge: {
