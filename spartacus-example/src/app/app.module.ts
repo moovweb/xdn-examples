@@ -14,7 +14,8 @@ import { B2cStorefrontModule } from '@spartacus/storefront';
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
-          baseUrl: typeof window !== 'undefined' ? `${window.location.protocol}//${window.location.host}` : 'http://localhost:3000',
+          // baseUrl: 'http://localhost:3000',
+          baseUrl: 'https://kevin-henderson-spartacus-example-default.moovweb-edge.io/',
           prefix: '/rest/v2/'
         }
       },
