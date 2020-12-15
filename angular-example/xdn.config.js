@@ -3,5 +3,6 @@
 module.exports = {
   env: {
     ANGULAR_PROJECT: 'foo'
-  }
+  },
+  connector: '@xdn/angular'
 }
