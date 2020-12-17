@@ -13,9 +13,7 @@
     "xdn:link": "yalc add @xdn/core @xdn/nuxt @xdn/prefetch @xdn/vue @xdn/cli @xdn/devtools"
   },
   "dependencies": {
-    "@nuxt/http": "^0.5.12",
-    "express": "^4.17.1",
-    "kill-port": "^1.6.1"
+    "@nuxt/http": "^0.5.12"
   },
   "devDependencies": {
     "@nuxt/serverless": "0.0.42",

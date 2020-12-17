@@ -1,40 +1,41 @@
-import {
-  BrowserModule,
-  BrowserTransferStateModule,
-} from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppComponent } from "./app.component";
-import { translations, translationChunksConfig } from "@spartacus/assets";
-import { B2cStorefrontModule } from "@spartacus/storefront";
+import { AppComponent } from './app.component';
+import { translations, translationChunksConfig } from '@spartacus/assets';
+import { B2cStorefrontModule } from '@spartacus/storefront';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
-    BrowserModule.withServerTransition({ appId: "serverApp" }),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
-          baseUrl: "http://localhost:3000",
-          prefix: "/rest/v2/",
-        },
+          baseUrl: typeof window !== 'undefined' ? `${window.location.protocol}//${window.location.host}` : 'http://localhost:3000',
+          prefix: '/rest/v2/'
+        }
       },
       context: {
-        baseSite: ["electronics-spa"],
+        currency: ['USD'],
+        language: ['en'],
+        baseSite: ['electronics-spa'],
+        urlParameters: ['baseSite']
       },
       i18n: {
         resources: translations,
         chunks: translationChunksConfig,
-        fallbackLang: "en",
+        fallbackLang: 'en'
       },
       features: {
-        level: "1.5",
-        anonymousConsents: true,
-      },
+        level: '2.1'
+      }
     }),
-    BrowserTransferStateModule,
+    BrowserTransferStateModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

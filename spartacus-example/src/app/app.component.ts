@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import install from '@xdn/prefetch/window/install';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
+import install from '@xdn/prefetch/window/install';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +9,18 @@ import { PLATFORM_ID } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  isBrowser: boolean
-  title = 'xdn-spartacus';
+  isBrowser: boolean;
+  title = 'spartacus-example';
 
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
-    this.isBrowser = isPlatformBrowser(platformId)
+    this.isBrowser = isPlatformBrowser(platformId);
   }
 
   ngOnInit() {
     setTimeout(() => {
       if (this.isBrowser) {
-        install()
+        install();
       }
-    })
+    });
   }
 }
