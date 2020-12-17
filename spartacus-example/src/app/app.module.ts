@@ -1,5 +1,6 @@
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { translations, translationChunksConfig } from '@spartacus/assets';
@@ -14,7 +15,7 @@ import { B2cStorefrontModule } from '@spartacus/storefront';
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
-          baseUrl: typeof window !== 'undefined' ? `${window.location.protocol}//${window.location.host}` : 'http://localhost:3000',
+          baseUrl: environment.occBackend,
           prefix: '/rest/v2/'
         }
       },
