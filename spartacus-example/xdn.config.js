@@ -4,6 +4,7 @@
 // You should commit this file to source control.
 
 module.exports = {
+  connector: '@xdn/spartacus',
   backends: {
     commerce: {
       domainOrIp: 'aemspartacusapi.tmg.codes',
