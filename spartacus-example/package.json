@@ -50,7 +50,7 @@
     "@xdn/devtools": "file:.yalc/@xdn/devtools",
     "@xdn/prefetch": "file:.yalc/@xdn/prefetch",
     "@xdn/spartacus": "file:.yalc/@xdn/spartacus",
-    "bootstrap": "4.2.1",
+    "bootstrap": "4.3.1",
     "express": "^4.15.2",
     "i18next": "^19.3.4",
     "i18next-xhr-backend": "^3.2.2",
