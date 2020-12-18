@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  occBackend: 'http://localhost:3000'
 };
 
 /*
