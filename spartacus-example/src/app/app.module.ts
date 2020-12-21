@@ -1,6 +1,5 @@
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { translations, translationChunksConfig } from '@spartacus/assets';
@@ -15,8 +14,9 @@ import { B2cStorefrontModule } from '@spartacus/storefront';
     B2cStorefrontModule.withConfig({
       backend: {
         occ: {
-          baseUrl: environment.occBackend,
-          prefix: '/rest/v2/'
+          baseUrl: typeof window !== 'undefined'
+            ? `${window.location.protocol}//${window.location.host}`
+            : 'https://spartacus-dev0.eastus.cloudapp.azure.com'
         }
       },
       context: {
@@ -31,7 +31,7 @@ import { B2cStorefrontModule } from '@spartacus/storefront';
         fallbackLang: 'en'
       },
       features: {
-        level: '2.1'
+        level: '3.0'
       }
     }),
     BrowserTransferStateModule

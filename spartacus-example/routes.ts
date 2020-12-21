@@ -40,10 +40,15 @@ const CACHE_SSR_PAGE = {
 }
 
 export default new Router()
-  .match('/rest/v2/:path*', ({ cache, proxy, removeRequestHeader }) => {
+  .match('/occ/v2/:path*', ({ cache, proxy, removeRequestHeader }) => {
     removeRequestHeader('origin')
     cache(CACHE_API)
     proxy('commerce')
+  })
+  .match('/rest/v2/:path*', ({ cache, proxy, removeRequestHeader }) => {
+    removeRequestHeader('origin')
+    cache(CACHE_API)
+    proxy('commerce', { path: '/occ/v2/:path' })
   })
   .match('/medias/:path*', ({ cache, proxy, removeRequestHeader }) => {
     removeRequestHeader('origin')
