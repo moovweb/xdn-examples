@@ -21,7 +21,7 @@
     "@xdn/react": "file:.yalc/@xdn/react",
     "globby": "^11.0.1",
     "isomorphic-git": "^1.7.8",
-    "next": "^10.0.1",
+    "next": "^12.1.0",
     "qs": "^6.9.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
