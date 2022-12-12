@@ -51,7 +51,7 @@
     "@xdn/prefetch": "file:.yalc/@xdn/prefetch",
     "@xdn/spartacus": "file:.yalc/@xdn/spartacus",
     "bootstrap": "4.2.1",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "i18next": "^19.3.4",
     "i18next-xhr-backend": "^3.2.2",
     "ngx-infinite-scroll": "^8.0.0",
