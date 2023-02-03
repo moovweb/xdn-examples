@@ -3,11 +3,11 @@
   "devDependencies": {
     "@types/node": "^13.13.2",
     "@xdn/cli": "^1.18.0",
-    "@xdn/core": "^1.18.0",
+    "@xdn/core": "^2.53.6",
     "@xdn/prefetch": "^1.18.0",
     "nodemon": "^2.0.3",
     "prettier": "^2.0.5",
-    "serverless": "^1.64.0",
+    "serverless": "^3.27.0",
     "serverless-dotenv-plugin": "^2.3.2",
     "serverless-offline": "^5.12.1",
     "ts-loader": "^7.0.1",
