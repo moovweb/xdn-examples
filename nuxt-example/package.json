@@ -24,7 +24,7 @@
     "@xdn/vue": "file:.yalc/@xdn/vue",
     "@xdn/devtools": "file:.yalc/@xdn/devtools",
     "dotenv": "^8.2.0",
-    "nuxt": "^2.14.6",
+    "nuxt": "^3.4.3",
     "vue-content-placeholders": "^0.2.1",
     "workbox-webpack-plugin": "^5.1.3",
     "write-file-webpack-plugin": "^4.5.1"
